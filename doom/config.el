@@ -86,3 +86,11 @@
   ;; mise environment (.tool-versions or mise.toml) whenever you
   ;; open a file in a new directory and set the PATH accordingly.
   (global-mise-mode))
+
+
+(after! projectile
+  (add-to-list 'projectile-globally-ignored-directories "*top)") ;; htop/btop, owned by root
+  (add-to-list 'projectile-globally-ignored-directories "dist")
+  ;; Use a wildcard prefix for more reliable matching (e.g., if it's nested)
+  (add-to-list 'projectile-globally-ignored-directories "*build")
+)
