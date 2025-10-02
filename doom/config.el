@@ -94,3 +94,7 @@
   ;; Use a wildcard prefix for more reliable matching (e.g., if it's nested)
   (add-to-list 'projectile-globally-ignored-directories "*build")
 )
+
+(after! evil-escape
+  (setq evil-escape-key-sequence "kj"
+        evil-escape-delay 0.2)) ;; 0.2 seconds to type 'kj'
