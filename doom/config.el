@@ -95,6 +95,14 @@
   (add-to-list 'projectile-globally-ignored-directories "*build")
 )
 
-(after! evil-escape
-  (setq evil-escape-key-sequence "kj"
-        evil-escape-delay 0.2)) ;; 0.2 seconds to type 'kj'
+;; (after! evil-escape
+;;   (setq evil-escape-key-sequence "kj"
+;;        evil-escape-delay 0.2)) ;; 0.2 seconds to type 'kj'
+
+(defun my/disable-corfu-in-large-files ()
+  "Disable corfu-mode if the current buffer size exceeds a certain threshold."
+  (when (> (buffer-size) 1000000) ; Example: Disable for files over 1MB (1,000,000 bytes)
+    (corfu-mode -1)
+    (message "Large file detected (over 1MB), disabling Corfu.")))
+
+(add-hook 'find-file-hook #'my/disable-corfu-in-large-files)
