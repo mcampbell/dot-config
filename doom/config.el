@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family  "Atkinson Hyperlegible Mono" :size 13 :weight 'normal))
+(setq doom-font (font-spec :family  "FiraCode Nerd Font" :size 14 :weight 'normal))
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -106,3 +106,5 @@
     (message "Large file detected (over 1MB), disabling Corfu.")))
 
 (add-hook 'find-file-hook #'my/disable-corfu-in-large-files)
+(map! :map evil-window-map
+      "o" #'delete-other-windows)
