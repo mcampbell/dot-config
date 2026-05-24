@@ -53,4 +53,10 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
 
+(disable-packages! let-completion)
+
 (package! mise)
+
+(package! catppuccin-theme)
+
+(package! evil-surround)

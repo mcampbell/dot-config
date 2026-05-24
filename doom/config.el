@@ -32,7 +32,9 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-one)
+(setq doom-theme 'catppuccin)
+(setq catppuccin-flavor 'frappe) ;; or 'latte, 'macchiato, or 'mocha
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -106,5 +108,8 @@
     (message "Large file detected (over 1MB), disabling Corfu.")))
 
 (add-hook 'find-file-hook #'my/disable-corfu-in-large-files)
-(map! :map evil-window-map
-      "o" #'delete-other-windows)
+;; This isn't bound to completely wipe out the other windows
+;; by default
+(map! :n "C-w o" #'delete-other-windows)
+(map! :leader
+      :desc "Maximize window" "w o" #'delete-other-windows)
